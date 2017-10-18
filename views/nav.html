@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="author" content="">
+        <title>学生查询及管理</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="all.css"/>
+    </head>
+    <body>
+        <!--导航栏-->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+           <!--container容器-->
+           <div class="container">
+               <!--导航条头部-->
+               <div class="navbar-header">
+                <a class="navbar-brand" href="#">学生管理系统</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#navbar">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                 </button>
+               </div>
+               
+                <!--这个地方的id链接的是上个div里面的data-target属性-->
+               <div id="navbar" class="collapse navbar-collapse">
+                    <ul  class="nav navbar-nav">
+                        <!--有几个选项写对应的li就可以了-->
+                       <li class="active"><a href="/index">主页</a></li>
+                       <li class="active"><a href="#">学生管理</a></li>
+                    </ul>
+               </div>
+           </div>
+        </nav>
+

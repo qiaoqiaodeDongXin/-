@@ -1,0 +1,122 @@
+{{ include "nav"}}
+        <header>
+            <h2 class="container hea">学生查询及管理</h2>
+        </header>
+        <div class="big">
+            <span type="button" class="btn btn-warning"><a href="/addStudent">添加学生</a></span>
+            
+            <span type="button" class="btn btn-success"><span class="glyphicon glyphicon-search"></span>  搜索</span>
+        </div>
+        <div class="container">
+            <!--响应式表格table-responsive-->
+            <div class="table-responsive">
+                <!--table-hover鼠标悬停状态-->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                            <th>号码</th>
+                            <th>邮箱</th>
+                            <th>备注</th>
+                            <th>建档</th>
+                            <th>修改</th>
+                            <th>删除</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ each data as stu i}}
+                            <tr>
+                               <td>{{ stu.studentname }}</td>
+                               <td>{{ stu.age }}</td>
+                               <td>{{ stu.gender }}</td>
+                               <td>{{ stu.telephone }}</td>
+                               <td>{{ stu.email }}</td>
+                               <td>{{ stu.remarks }}</td>
+                               <td>{{ stu.time }}</td>
+                               <td><a href="/update?studentname={{stu.studentname}}"><span class="glyphicon glyphicon-edit"></span></a></td>
+                               <td><a href="/remove?studentname={{stu.studentname}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            </tr>
+                        {{ /each }}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--分页效果-->
+        <div>
+            <div class="container">
+                <ul class="pagination slidebox">
+                    <li class="lileft"><a href="#">&laquo;</a></li>
+                    <li class="fixedbox">
+                        <ul class="father">
+                            <li><a href="/one">1</a></li>
+                            <li><a href="/two">2</a></li>
+                            <li><a href="/three">3</a></li>
+                            <li><a href="/four">4</a></li>
+                            <li><a href="/five">5</a></li>
+                            <li><a href="/six">6</a></li>
+                        </ul>
+                    </li>
+                    <li class="liright"><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">搜索学生信息</h4>
+                    </div>
+                    <div class="modal-footer">   
+                        <form  class="form-horizontal fright" role="form" action="/sousuo" method="post">
+                            <label for="name">姓名</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="studentname" id="name" placeholder="请输入姓名"/>
+                            <br />
+                            <div>
+                                <label>性别</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="gender" checked="checked" id="female"/><label for="female">不限</label>
+                                <input type="radio" name="gender" id="男" value="男"/><label for="male">男</label>
+                                <input type="radio" name="gender" id="female" value="女"/><label for="female">女</label>
+                            </div>
+                            <label for="tep">号码</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" name="telephone" id="tep" placeholder="请输入电话号码" /><br>
+                            <input type="submit" class="btn btn-default fleft" value="搜索">
+                        </form>                    
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal -->
+        </div>
+    </body>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</html>
+        <script>
+            var leftindex = 0;
+            $(".btn-success").click(function(){
+                $("#myModal").modal("show");
+                console.log(123);
+            });
+            $(".lileft").click(function(){
+                leftindex+=34;
+                if(leftindex>0){
+                    leftindex = 0;
+                }
+                $(".father").finish().animate({
+                    left: leftindex + "px"},
+                    100);
+            });
+            $(".liright").click(function(){
+                leftindex-=34;
+                if(leftindex<-102){
+                    leftindex = -102;
+                }
+                $(".father").finish().animate({
+                    left: leftindex + "px"},
+                    100);
+            })
+        </script>

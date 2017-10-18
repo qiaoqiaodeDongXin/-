@@ -1,0 +1,30 @@
+{{ include "nav"}}
+        <header>
+            <h2 class="container hea">添加学生信息</h2>
+        </header>
+        <div class="container">
+             <form class="form-horizontal" role="form" action="/addStudent" method="post">
+               <label for="name">姓名</label>  
+                 <input type="text" class="inp" name="studentname" id="name" placeholder="请输入姓名" required/>
+                 <br />
+                 <label for="age">年龄</label> 
+                 <input type="number" class="inp" name="age" id="age" placeholder="请输入年龄" required/>
+                 <br />
+                 <div class="radi">
+                     <label class="laradi">性别</label>
+                     <input type="radio" name="gender" checked="checked" id="男" value="男"/><label for="male">男</label>
+                     <input type="radio" name="gender" id="female" value="女"/><label for="female">女</label>
+                 </div>
+                 <label for="tep">号码</label> 
+                 <input type="text" class="inp" name="telephone" id="tep" placeholder="请输入电话号码" />
+                 <br />
+                 <label for="email">邮箱</label> 
+                 <input type="email" class="inp" name="email" id="email" placeholder="请输入邮箱" />
+                 <br><br>
+                 <label for="remarks" class="laradi">备注</label> 
+                 <textarea name="remarks" id="remarks" class="texta"></textarea>
+                 <br />
+                 <input type="submit" class="sub" value="提交" />
+             </form>
+      </div>
+{{ include "footer"}}

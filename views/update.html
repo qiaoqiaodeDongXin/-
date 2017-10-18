@@ -1,0 +1,35 @@
+{{ include "nav"}}
+        <header>
+            <h2 class="container hea">修改学生信息,每一项都必须重写</h2>
+        </header>
+        <div class="container">
+             <form class="form-horizontal" role="form" action="/update" method="post">
+               <label for="name">姓名</label>  
+                 <input type="text" class="inp" name="studentname" id="name" value="{{data[0].studentname}}" required/>
+                 <br />
+                 <label for="age">年龄</label> 
+                 <input type="number" class="inp" name="age" id="age" value="{{data[0].age}}" required/>
+                 <br />
+                 <div class="radi">
+                     <label class="laradi">性别</label>
+                     <input type="radio" name="gender" checked="checked" id="男" value="男"/><label for="male">男</label>
+                     <input type="radio" name="gender" id="female" value="女"/><label for="female">女</label>
+                 </div>
+                 <label for="tep">号码</label> 
+                 <input type="text" class="inp" name="telephone" id="tep" value="{{data[0].telephone}}" required/>
+                 <br />
+                 <label for="email">邮箱</label> 
+                 <input type="email" class="inp" name="email" id="email" value="{{data[0].email}}" required/>
+                 <br><br>
+                 <label for="remarks" class="laradi">备注</label> 
+                 <textarea name="remarks" id="remarks" class="texta" value="{{data[0].remarks}}" required></textarea>
+                 <br />
+                 <input type="submit" class="sub" value="提交" />
+             </form>
+      </div>
+{{ include "footer"}}
+<!-- <script>
+    {{ each data as stu i}}
+         $("input").eq(i).text({{ stu[i] }});
+    {{ /each}}
+</script> -->
